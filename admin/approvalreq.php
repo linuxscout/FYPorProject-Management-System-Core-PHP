@@ -1,15 +1,16 @@
 <?php
 include 'sessions.php';
+//~ include 'connection.php';
 ?>
 
 <?php 
 if(isset($_POST['usapp'])){
-	$us= $_POST['usapp'];
+    $us= $_POST['usapp'];
 $sql = "update `tbl_student` set approve=1 where  username='".$us."' ";
 $con->query($sql);
 }
 if(isset($_POST['usdel'])){
-	$us= $_POST['usdel'];
+    $us= $_POST['usdel'];
 $sql = "delete from `tbl_student` where  username='".$us."' ";
 if($con->query($sql)==true){
   $file = $_POST['img'];
@@ -17,19 +18,19 @@ unlink($file);
 };
 }
 
-	?>
+    ?>
     <?php
 include 'temp_nav.php';
 ?>
 <!--  page banner -->
   <section id="page-banner" class="page-banner-main-block" style="background-image: url('..\images/bg/page-banner.jpg')">
-  	<div class="row">
+    <div class="row">
   <div class="col-sm-2 text-center" style="float:left;"> <a href="users.php"><button type="submit" class="btn btn-default"> Back</button></a></div>
   
  <div class="col-sm-2" style="float:right;"> <a href="logout.php"><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Log Out</button></a></div></div>
  <div class="row">
- 	<div class="col-sm-2"></div>
- 	<div class="col-sm-8 text-center">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 text-center">
    <h2 class="page-banner-heading  text-center">Admin Panel:  </h2><p> Approval Requests(Student):</p>
    </div>
    <div class="col-sm-2"></div>
@@ -46,7 +47,7 @@ include 'temp_nav.php';
  $result = $con->query($sql);
 
 if ($result->num_rows > 0) {
-	echo '<table style="margin-top:30px;" class="table table-bordered">
+    echo '<table style="margin-top:30px;" class="table table-bordered">
       <thead>
         <tr>
          <th style="color:green" >Sr#</th>
@@ -65,9 +66,9 @@ if ($result->num_rows > 0) {
       $count=1;
     // output data of each row
     while($row = $result->fetch_assoc()) {
-    	echo '<tr>';
+        echo '<tr>';
         echo '<td id="tdprj">'.$count.'</td>';
-    	echo '<td>'.'<img src="'.$row['img'].'" style="width:70px; height:80px;"/> </td>';
+        echo '<td>'.'<img src="'.$row['img'].'" style="width:70px; height:80px;"/> </td>';
         echo '<td>'.$row['fname'].'</td>';
         echo '<td>'.$row['lname'].'</td>';
         echo '<td>'.$row['username'].'</td>';
@@ -83,7 +84,7 @@ if ($result->num_rows > 0) {
           echo '<td>'.'<form action="#" method="post"> <input type="hidden" name="img" value="'.$row['img'].'" /> <input type="hidden" name="usdel" value="'.$row['username'].'" /><input style="background:red;" type="submit" value="Delete" class="btn-default" /></form>'.'</td>';
 
        
-    	echo '</tr>';
+        echo '</tr>';
       $count++;
     }
 echo '</tbody></table>';}

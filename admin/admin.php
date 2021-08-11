@@ -1,5 +1,6 @@
 <?php
 include 'sessions.php';
+include 'connection.php';
 ?>
 
     <?php
@@ -7,13 +8,13 @@ include 'temp_nav.php';
 ?>
 <!--  page banner -->
   <section id="page-banner" class="page-banner-main-block" style="background-image: url('..\images/bg/page-banner.jpg')">
-  	<div class="row">
+    <div class="row">
   <div class="col-sm-2 text-center" style="float:left;"> <a href="changepassword.php"><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-wrench"></span> &nbsp;Change Password</button></a></div>
   
  <div class="col-sm-2" style="float:right;"> <a href="logout.php"><button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Log Out</button></a></div></div>
  <div class="row">
- 	<div class="col-sm-2"></div>
- 	<div class="col-sm-8">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
    <h2 class="page-banner-heading  text-center">Admin Panel:  </h2>
    </div>
    <div class="col-sm-2"></div>
